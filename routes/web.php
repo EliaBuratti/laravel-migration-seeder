@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Train;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,5 +15,9 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+
+    $trains = Train::all();
+
+    //dd($trains);
+    return view('welcome', compact('trains'));
 });

@@ -29,7 +29,7 @@ class TrainTableSeeder extends Seeder
             $train->carriages = $faker->numberBetween(1, 30);
             $train->on_time = $faker->boolean();
             $train->deleted = $faker->boolean();
-            $train->department_date = $faker->date();
+            $train->department_date = $faker->dateTimeBetween('0 week', '+1 week');
             //save the instructions
             $train->save();
         }
