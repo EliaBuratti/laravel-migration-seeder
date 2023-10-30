@@ -33,3 +33,5 @@ return new class extends Migration
         Schema::dropIfExists('trains');
     }
 };
+
+//             $table->date('department_date')->after('time_departure');

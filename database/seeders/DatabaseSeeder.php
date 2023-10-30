@@ -18,5 +18,27 @@ class DatabaseSeeder extends Seeder
         //     'name' => 'Test User',
         //     'email' => 'test@example.com',
         // ]);
+
+        $this->call([
+            TrainTableSeeder::class
+        ]);
     }
 }
+
+/*     public function run(Faker $faker): void
+    {
+        //
+        $train = new Train();
+        $train->society = $faker->word();
+        $train->station_departure = $faker->word();
+        $train->station_arrive = $faker->word();
+        $train->time_departure = $faker->time();
+        $train->time_arrive = $faker->time();
+        $train->code = $faker->bothify('??####');
+        $train->carriages = $faker->numberBetween(1, 30);
+        $train->on_time = $faker->boolean();
+        $train->deleted = $faker->boolean();
+
+        //save the instructions
+        $train->save();
+    } */

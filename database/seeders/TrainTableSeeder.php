@@ -3,9 +3,9 @@
 namespace Database\Seeders;
 
 use App\Models\Train;
-use Faker\Generator as Faker;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use Faker\Generator as Faker;
 
 class TrainTableSeeder extends Seeder
 {
@@ -15,7 +15,23 @@ class TrainTableSeeder extends Seeder
     public function run(Faker $faker): void
     {
         //
-        //$train = new Train();
-        //$train->society =
+
+        for ($i = 0; $i < 20; $i++) {
+
+
+            $train = new Train();
+            $train->society = $faker->word();
+            $train->station_departure = $faker->word();
+            $train->station_arrive = $faker->word();
+            $train->time_departure = $faker->time();
+            $train->time_arrive = $faker->time();
+            $train->code = $faker->bothify('??####');
+            $train->carriages = $faker->numberBetween(1, 30);
+            $train->on_time = $faker->boolean();
+            $train->deleted = $faker->boolean();
+            $train->department_date = $faker->date();
+            //save the instructions
+            $train->save();
+        }
     }
 }
