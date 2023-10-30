@@ -16,7 +16,8 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
 
-    $trains = Train::all();
+    $trains = Train::orderByDesc('department_date')->orderByDesc('time_departure')->get();
+    //$trains = Train::all();
 
     //dd($trains);
     return view('welcome', compact('trains'));
