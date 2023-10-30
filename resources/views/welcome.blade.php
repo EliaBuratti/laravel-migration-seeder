@@ -36,9 +36,11 @@
                             <a class="nav-link active" href="#" aria-current="page">About <span class="visually-hidden">(current)</span></a>
                         </li>
                     </ul>
-                    <form class="d-flex my-2 my-lg-0">
-                        <input class="form-control me-sm-2" type="text" placeholder="Search">
+                    <form class="d-flex my-2 my-lg-0" action="{{ url('/') }}" method="get">
+                        <input class="form-control me-sm-2" type="date" id="user_date" name="user_date" placeholder="Search" required>
                         <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                        <button class="btn btn-outline-danger my-2 my-sm-0" type="reset">azzera</button>
+
                     </form>
                 </div>
             </div>
@@ -69,7 +71,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach($trains as $train)
+                    @forelse($trains as $train)
                     <tr>
                         <td>{{$train->code}}</td>
                         <td>{{$train->station_departure}}</td>
@@ -81,8 +83,10 @@
                         <td>{{$train->on_time ? 'In orario' : 'In ritardo'}}</td>
                         <td>{{$train->deleted ? 'Confermato' : 'Cancellato'}}</td>
                         <td>{{$train->carriages}}</td>
+                        @empty
+                        <td>Nessun treno per la data selezioanta</td>
                     </tr>
-                    @endforeach
+                    @endforelse
 
                 </tbody>
             </table>
